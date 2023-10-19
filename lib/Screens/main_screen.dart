@@ -19,6 +19,7 @@ class MainScreen extends StatelessWidget {
         return mainBody[index];
       }),
       backgroundColor: ThemeColors.backgroundColor,
+      extendBody: true,
       bottomNavigationBar: const Navbar(),
     );
   }

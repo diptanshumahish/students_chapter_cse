@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_feather_icons/flutter_feather_icons.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:students_chapter_cse/providers/user.providers.dart";
+import "package:students_chapter_cse/themes/theme_colors.dart";
 
 class TopBanner extends StatelessWidget {
   const TopBanner({super.key});
@@ -15,7 +16,7 @@ class TopBanner extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-            height: height / 3,
+            height: height / 3.5,
             width: width,
             decoration: BoxDecoration(
                 color: const Color.fromARGB(28, 22, 87, 143),
@@ -41,7 +42,7 @@ class TopBanner extends StatelessWidget {
                             userDetails.points.toString(),
                             style: const TextStyle(
                                 fontSize: 35,
-                                color: Colors.yellow,
+                                color: ThemeColors.primaryColor,
                                 fontWeight: FontWeight.bold),
                           )
                         ],

@@ -37,7 +37,7 @@ class DevUser extends ConsumerWidget {
                     email: "diptanshu.mahish.21@aot.edu.in",
                     isLogged_in: true));
               },
-              child: Text(
+              child: const Text(
                 "Update",
                 style: TextStyle(color: Colors.white),
               ),
@@ -48,7 +48,7 @@ class DevUser extends ConsumerWidget {
               onPressed: () {
                 change.resetUser();
               },
-              child: Text(
+              child: const Text(
                 "Reset",
                 style: TextStyle(color: Colors.white),
               ),
