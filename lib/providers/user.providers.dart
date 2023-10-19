@@ -28,6 +28,10 @@ class UserNotifier extends StateNotifier<User> {
     bool? isVerified,
     List<DailyTask>? dailyTasks,
     bool? isCoreMember,
+    String? stream,
+    int? mobileNumber,
+    String? email,
+    bool? isLogged_in,
   }) {
     state = state.copyWith(
       name: name ?? state.name,
@@ -40,6 +44,10 @@ class UserNotifier extends StateNotifier<User> {
       isVerified: isVerified ?? state.isVerified,
       dailyTasks: dailyTasks ?? state.dailyTasks,
       isCoreMember: isCoreMember ?? state.isCoreMember,
+      stream: stream ?? state.stream,
+      mobileNumber: mobileNumber ?? state.mobileNumber,
+      email: email ?? state.email,
+      isLogged_in: isLogged_in ?? state.isLogged_in,
     );
 
     _saveUserData();
@@ -64,3 +72,20 @@ class UserNotifier extends StateNotifier<User> {
     prefs.setString(_userKey, jsonEncode(userData));
   }
 }
+
+final userProvider = StateNotifierProvider<UserNotifier, User>((ref) =>
+    UserNotifier(User(
+        name: "",
+        membershipId: "",
+        yearOfPassOut: 0,
+        profilePicture: "",
+        dailyTasks: [],
+        yearOfAdmission: 0,
+        isCoreMember: false,
+        isVerified: false,
+        points: 0,
+        role: Role.userLow,
+        stream: "",
+        mobileNumber: 0,
+        isLogged_in: false,
+        email: "")));

@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class User {
   final String name;
   final String membershipId;
@@ -7,21 +6,30 @@ class User {
   final String profilePicture;
   final int points;
   final Role role;
+  final String stream;
+  final int mobileNumber;
+  final String email;
   final bool isVerified;
+  final bool isLogged_in; // Added field
   final List<DailyTask> dailyTasks;
   final bool isCoreMember;
 
-  User(
-      {required this.name,
-      required this.membershipId,
-      required this.yearOfPassOut,
-      required this.profilePicture,
-      required this.yearOfAdmission,
-      required this.dailyTasks,
-      required this.isCoreMember,
-      required this.isVerified,
-      required this.points,
-      required this.role});
+  User({
+    required this.name,
+    required this.membershipId,
+    required this.yearOfPassOut,
+    required this.profilePicture,
+    required this.yearOfAdmission,
+    required this.dailyTasks,
+    required this.isCoreMember,
+    required this.isVerified,
+    required this.points,
+    required this.role,
+    required this.stream,
+    required this.mobileNumber,
+    required this.email,
+    required this.isLogged_in,
+  });
 
   User copyWith({
     String? name,
@@ -34,6 +42,10 @@ class User {
     bool? isVerified,
     List<DailyTask>? dailyTasks,
     bool? isCoreMember,
+    String? stream,
+    int? mobileNumber,
+    String? email,
+    bool? isLogged_in,
   }) {
     return User(
       name: name ?? this.name,
@@ -46,6 +58,10 @@ class User {
       isVerified: isVerified ?? this.isVerified,
       dailyTasks: dailyTasks ?? this.dailyTasks,
       isCoreMember: isCoreMember ?? this.isCoreMember,
+      stream: stream ?? this.stream,
+      mobileNumber: mobileNumber ?? this.mobileNumber,
+      email: email ?? this.email,
+      isLogged_in: isLogged_in ?? this.isLogged_in,
     );
   }
 
@@ -60,7 +76,11 @@ class User {
       'isCoreMember': isCoreMember,
       'isVerified': isVerified,
       'points': points,
-      'role': role.toString(), // Convert enum to string
+      'role': role.toString(),
+      'stream': stream,
+      'mobileNumber': mobileNumber,
+      'email': email,
+      'isLogged_in': isLogged_in,
     };
   }
 
@@ -79,8 +99,12 @@ class User {
       points: json['points'],
       role: Role.values.firstWhere(
         (e) => e.toString() == json['role'],
-        orElse: () => Role.userLow, // Default value if not found
+        orElse: () => Role.userLow,
       ),
+      stream: json['stream'],
+      mobileNumber: json['mobileNumber'],
+      email: json['email'],
+      isLogged_in: json['isLogged_in'],
     );
   }
 }
