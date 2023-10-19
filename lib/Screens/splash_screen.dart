@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students_chapter_cse/components/splash_content.dart';
+import 'package:students_chapter_cse/components/splash_cont_one.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SplashContent(),
+      body: SplashTwo(),
     );
   }
 }
