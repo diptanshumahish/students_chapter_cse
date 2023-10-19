@@ -21,7 +21,7 @@ class _SplashTwoState extends State<SplashTwo> {
               Navigator.push(
                   context,
                   PageTransition(
-                      type: PageTransitionType.fade, child: const MainScreen()))
+                      type: PageTransitionType.fade, child: MainScreen()))
             });
   }
 

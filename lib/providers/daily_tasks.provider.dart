@@ -15,7 +15,7 @@ class DailyTaskNotifier extends StateNotifier<List<DailyTask>> {
   }
 
   void editTasks(
-    String? taskId,
+    String taskId,
     String? completionTime,
     int? point,
     String? task,
