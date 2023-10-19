@@ -53,6 +53,25 @@ class UserNotifier extends StateNotifier<User> {
     _saveUserData();
   }
 
+  void resetUser() {
+    state = User(
+        name: "",
+        membershipId: "",
+        yearOfPassOut: 0,
+        profilePicture: "",
+        yearOfAdmission: 0,
+        dailyTasks: [],
+        isCoreMember: false,
+        isVerified: false,
+        points: 0,
+        role: Role.userLow,
+        stream: "",
+        mobileNumber: 0,
+        email: "",
+        isLogged_in: false);
+    _clearUserData();
+  }
+
   static const _userKey = 'user_data';
 
   // load data from local storage
@@ -70,6 +89,12 @@ class UserNotifier extends StateNotifier<User> {
     final prefs = await SharedPreferences.getInstance();
     final userData = state.toJson();
     prefs.setString(_userKey, jsonEncode(userData));
+  }
+
+  //for reset
+  Future<void> _clearUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove(_userKey);
   }
 }
 
