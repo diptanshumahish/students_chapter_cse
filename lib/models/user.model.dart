@@ -10,7 +10,7 @@ class User {
   final int mobileNumber;
   final String email;
   final bool isVerified;
-  final bool isLogged_in; // Added field
+  final bool isLoggedIn; // Added field
   final List<DailyTask> dailyTasks;
   final bool isCoreMember;
 
@@ -28,7 +28,7 @@ class User {
     required this.stream,
     required this.mobileNumber,
     required this.email,
-    required this.isLogged_in,
+    required this.isLoggedIn,
   });
 
   User copyWith({
@@ -45,7 +45,7 @@ class User {
     String? stream,
     int? mobileNumber,
     String? email,
-    bool? isLogged_in,
+    bool? isLoggedIn,
   }) {
     return User(
       name: name ?? this.name,
@@ -61,7 +61,7 @@ class User {
       stream: stream ?? this.stream,
       mobileNumber: mobileNumber ?? this.mobileNumber,
       email: email ?? this.email,
-      isLogged_in: isLogged_in ?? this.isLogged_in,
+      isLoggedIn: isLoggedIn ?? this.isLoggedIn,
     );
   }
 
@@ -80,7 +80,7 @@ class User {
       'stream': stream,
       'mobileNumber': mobileNumber,
       'email': email,
-      'isLogged_in': isLogged_in,
+      'isLoggedIn': isLoggedIn,
     };
   }
 
@@ -104,7 +104,7 @@ class User {
       stream: json['stream'],
       mobileNumber: json['mobileNumber'],
       email: json['email'],
-      isLogged_in: json['isLogged_in'],
+      isLoggedIn: json['isLoggedIn'],
     );
   }
 }

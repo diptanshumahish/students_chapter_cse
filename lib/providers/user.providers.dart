@@ -31,7 +31,7 @@ class UserNotifier extends StateNotifier<User> {
     String? stream,
     int? mobileNumber,
     String? email,
-    bool? isLogged_in,
+    bool? isLoggedIn,
   }) {
     state = state.copyWith(
       name: name ?? state.name,
@@ -47,7 +47,7 @@ class UserNotifier extends StateNotifier<User> {
       stream: stream ?? state.stream,
       mobileNumber: mobileNumber ?? state.mobileNumber,
       email: email ?? state.email,
-      isLogged_in: isLogged_in ?? state.isLogged_in,
+      isLoggedIn: isLoggedIn ?? state.isLoggedIn,
     );
 
     _saveUserData();
@@ -68,7 +68,7 @@ class UserNotifier extends StateNotifier<User> {
         stream: "",
         mobileNumber: 0,
         email: "",
-        isLogged_in: false);
+        isLoggedIn: false);
     _clearUserData();
   }
 
@@ -112,5 +112,5 @@ final userProvider = StateNotifierProvider<UserNotifier, User>((ref) =>
         role: Role.userLow,
         stream: "",
         mobileNumber: 0,
-        isLogged_in: false,
+        isLoggedIn: false,
         email: "")));

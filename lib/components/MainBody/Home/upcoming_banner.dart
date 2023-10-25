@@ -19,7 +19,7 @@ class UpcomingBanner extends ConsumerWidget {
             height: height / 5,
             width: width / 3,
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 230, 105),
+                color: const Color.fromARGB(255, 255, 230, 105),
                 border: Border.all(color: Colors.white10),
                 borderRadius: BorderRadius.circular(width / 20)),
             child: Padding(
@@ -30,7 +30,8 @@ class UpcomingBanner extends ConsumerWidget {
                   Text(DateFormat("EE").format(now).toString()),
                   Text(
                     DateFormat("d").format(now).toString(),
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 60, fontWeight: FontWeight.bold),
                   ),
                   Text(DateFormat("MMM").format(now).toString()),
                 ],
@@ -41,7 +42,7 @@ class UpcomingBanner extends ConsumerWidget {
             height: height / 5,
             width: width / 1.7,
             decoration: BoxDecoration(
-                color: Color.fromARGB(8, 105, 188, 255),
+                color: const Color.fromARGB(8, 105, 188, 255),
                 border: Border.all(color: Colors.white10),
                 borderRadius: BorderRadius.circular(width / 20)),
             child: Padding(
@@ -49,18 +50,18 @@ class UpcomingBanner extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Upcoming Events",
                     style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           border: Border(
                               bottom: BorderSide(color: Colors.white30))),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -78,10 +79,10 @@ class UpcomingBanner extends ConsumerWidget {
                         ],
                       )),
                   Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           border: Border(
                               bottom: BorderSide(color: Colors.white30))),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(

@@ -35,7 +35,7 @@ class DevUser extends ConsumerWidget {
                     stream: "CSE3",
                     mobileNumber: 8961603453,
                     email: "diptanshu.mahish.21@aot.edu.in",
-                    isLogged_in: true));
+                    isLoggedIn: true));
               },
               child: const Text(
                 "Update",

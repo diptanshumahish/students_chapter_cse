@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:students_chapter_cse/Screens/splash_screen.dart';
+import 'package:students_chapter_cse/Screens/user_cred_screen.dart';
+import 'package:students_chapter_cse/Screens/users.dart';
 import 'package:students_chapter_cse/themes/theme_data.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeMain.theme,
-      home: const SplashScreen(),
+      home: const UserDetails(),
     );
   }
 }
