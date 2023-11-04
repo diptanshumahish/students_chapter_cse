@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' show join;
@@ -99,7 +97,7 @@ class UserService {
   Future<void> _ensureDbIsOpen() async {
     try {
       await open();
-    } on databaseA {}
+    } on DatabaseAlreadyOpenedException {}
   }
 
   Database _getDatabaseOrThrow() {
@@ -113,10 +111,10 @@ class UserService {
 
   Future<void> deleteUser({required int id}) async {
     final db = _getDatabaseOrThrow();
-    final deletedCoutnt =
+    final deletedCount =
         await db.delete(userTable, where: 'id = ?', whereArgs: [id]);
-    if (deletedCoutnt == 0) {
-      throw CouldNotDeleteUser('Could not delete user');
+    if (deletedCount == 0) {
+      throw const CouldNotDeleteUser('Could not delete user');
     } else {
       _users.removeWhere((element) => element.id == id);
       _usersStreamController.add(_users);
@@ -134,7 +132,7 @@ class UserService {
     );
 
     if (results.isEmpty) {
-      throw CouldNotFindUser('User not found');
+      throw const CouldNotFindUser('User not found');
     } else {
       final users = DatabaseUser.fromRow(results.first);
       _users.removeWhere((element) => element.email == email);
@@ -172,7 +170,7 @@ class UserService {
       whereArgs: [email.toLowerCase()],
     );
     if (results.isNotEmpty) {
-      throw UserAlreadyExistsException("User already exists");
+      throw const UserAlreadyExistsException("User already exists");
     }
 
     final userId = await db.insert(
@@ -180,7 +178,7 @@ class UserService {
       {emailColumn: email.toLowerCase()},
     );
 
-    final UserList = DatabaseUser(
+    final userList = DatabaseUser(
       id: userId,
       name: name,
       membershipId: membershipId,
@@ -196,15 +194,15 @@ class UserService {
       isCoreMember: isCoreMember,
     );
 
-    _users.add(UserList);
+    _users.add(userList);
     _usersStreamController.add(_users);
 
-    return UserList;
+    return userList;
   }
 
   Future<void> open() async {
     if (_db == null) {
-      DatabaseAlreadyOpenedException("Exception to be returned");
+      const DatabaseAlreadyOpenedException("Exception to be returned");
     }
     try {
       final docsPath = await getApplicationDocumentsDirectory();
