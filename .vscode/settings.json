@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
+        "AUTOINCREMENT",
         "Leaderboard",
         "prefs",
         "riverpod",
+        "sqflite",
         "SUPERADMIN"
     ]
 }

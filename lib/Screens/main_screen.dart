@@ -10,7 +10,12 @@ import 'package:students_chapter_cse/themes/theme_colors.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
-  final mainBody = [Home(), Daily(), Events(), Profile()];
+  final mainBody = [
+    const Home(),
+    const Daily(),
+    const Events(),
+    const Profile()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
